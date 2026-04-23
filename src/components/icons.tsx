@@ -88,6 +88,21 @@ export function ClockIcon() {
   );
 }
 
+export function PhoneIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className}>
+      <path
+        d="M7.5 4.5 9.8 9c.2.4.1.9-.2 1.2l-1.1 1.1a13.5 13.5 0 0 0 4.2 4.2l1.1-1.1c.3-.3.8-.4 1.2-.2l4.5 2.3c.5.2.8.8.6 1.4l-.8 2.3c-.2.5-.7.8-1.2.8A15.1 15.1 0 0 1 3 5.9c0-.5.3-1 .8-1.2l2.3-.8c.6-.2 1.2.1 1.4.6Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.8"
+      />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 32 32" className={className}>
@@ -98,4 +113,3 @@ export function WhatsAppIcon({ className = "h-6 w-6" }: { className?: string }) 
     </svg>
   );
 }
-

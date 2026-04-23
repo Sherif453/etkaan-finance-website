@@ -40,3 +40,19 @@ export function createWhatsAppUrl(message = "") {
   return `https://wa.me/${siteConfig.whatsappNumber}${query}`;
 }
 
+export function createFloatingWhatsAppMessage(locale: Locale) {
+  if (locale === "en") {
+    return [
+      "Hello,",
+      "Please contact me regarding Etkaan services.",
+      "I am interested in company formation, accounting advisory, or tax services.",
+      "Thank you."
+    ].join("\n");
+  }
+
+  return [
+    "بعد التحية،",
+    "برجاء التكرم بالتواصل معي بخصوص الاستفادة من خدماتكم في (تأسيس شركة / استشارة محاسبية / خدمات ضريبية).",
+    "وشكرًا مقدمًا."
+  ].join("\n");
+}

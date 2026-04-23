@@ -20,7 +20,7 @@ export default async function PrivacyPolicyPage({ params }: Props) {
   return (
     <section className="section-y">
       <div className="container-shell max-w-3xl">
-        <p className="text-sm font-bold text-[var(--accent)]">
+        <p className="text-sm font-bold text-[var(--primary)]">
           {t("eyebrow")}
         </p>
         <h1 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
@@ -33,4 +33,3 @@ export default async function PrivacyPolicyPage({ params }: Props) {
     </section>
   );
 }
-

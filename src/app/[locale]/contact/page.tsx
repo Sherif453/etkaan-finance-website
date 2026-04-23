@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CtaButton } from "@/components/cta-button";
+import { PhoneIcon } from "@/components/icons";
 import { SocialLinks } from "@/components/social-links";
 import type { Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
@@ -34,7 +35,7 @@ export default async function ContactPage({ params }: Props) {
     <section className="section-y">
       <div className="container-shell grid gap-10 lg:grid-cols-[.95fr_1.05fr]">
         <div>
-          <p className="text-sm font-bold text-[var(--accent)]">
+          <p className="text-sm font-bold text-[var(--primary)]">
             {t("eyebrow")}
           </p>
           <h1 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
@@ -64,8 +65,9 @@ export default async function ContactPage({ params }: Props) {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-[var(--primary)] hover:text-[var(--primary-dark)]"
+                    className="inline-flex items-center gap-2 font-bold text-[var(--primary)] hover:text-[var(--primary-dark)]"
                   >
+                    <PhoneIcon className="h-5 w-5" />
                     {siteConfig.phoneDisplay}
                   </a>
                 </dd>

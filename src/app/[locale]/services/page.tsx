@@ -58,7 +58,7 @@ export default async function ServicesPage({ params }: Props) {
     <>
       <section className="section-y">
         <div className="container-shell max-w-3xl">
-          <p className="text-sm font-bold text-[var(--accent)]">
+          <p className="text-sm font-bold text-[var(--primary)]">
             {page("eyebrow")}
           </p>
           <h1 className="mt-4 text-4xl font-black leading-tight md:text-5xl">

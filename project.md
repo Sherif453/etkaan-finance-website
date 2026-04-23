@@ -31,6 +31,10 @@ Do not show any service prices anywhere on the site. Pricing is handled manually
 - All marketing CTAs open the shared lead modal.
 - The floating WhatsApp button is always visible and opens WhatsApp directly.
 - Phone/WhatsApp contact displays open WhatsApp. Email may use a normal `mailto:` link. Facebook and LinkedIn may open their external profiles.
+- The floating WhatsApp button uses this Arabic prefilled message:
+  - بعد التحية،
+  - برجاء التكرم بالتواصل معي بخصوص الاستفادة من خدماتكم في (تأسيس شركة / استشارة محاسبية / خدمات ضريبية).
+  - وشكرًا مقدمًا.
 - The form always starts with these visitor-facing fields:
   - Name
   - Phone number
@@ -50,6 +54,7 @@ Show this near CTA areas:
 ## Languages and Routing
 
 - Arabic is the default language.
+- Locale detection is disabled so root visits always default to Arabic instead of browser language.
 - English is a complete switch, not a partial translation.
 - Locale routes are `/ar` and `/en`.
 - Root requests should resolve to Arabic by default through next-intl routing.

@@ -26,7 +26,7 @@ export default async function AboutPage({ params }: Props) {
       <section className="section-y">
         <div className="container-shell grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-start">
           <div>
-            <p className="text-sm font-bold text-[var(--accent)]">
+            <p className="text-sm font-bold text-[var(--primary)]">
               {t("eyebrow")}
             </p>
             <h1 className="mt-4 text-4xl font-black leading-tight md:text-5xl">

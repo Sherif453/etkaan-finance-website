@@ -2,17 +2,15 @@
 
 import { useLocale } from "next-intl";
 import { WhatsAppIcon } from "@/components/icons";
-import { createWhatsAppMessage, createWhatsAppUrl } from "@/lib/whatsapp";
+import {
+  createFloatingWhatsAppMessage,
+  createWhatsAppUrl
+} from "@/lib/whatsapp";
 import type { Locale } from "@/i18n/routing";
 
 export function FloatingWhatsApp() {
   const locale = useLocale() as Locale;
-  const message = createWhatsAppMessage({
-    locale,
-    name: "",
-    governorate: "",
-    service: ""
-  });
+  const message = createFloatingWhatsAppMessage(locale);
 
   return (
     <a
