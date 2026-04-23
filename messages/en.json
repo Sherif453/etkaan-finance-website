@@ -1,0 +1,192 @@
+{
+  "brand": {
+    "name": "Etkaan",
+    "nameLatin": "Etkaan"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "language": "العربية"
+  },
+  "common": {
+    "primaryCta": "Get Service Cost Now",
+    "costNote": "Cost varies depending on the type and size of the business.",
+    "openMenu": "Open menu",
+    "close": "Close",
+    "whatsapp": "WhatsApp",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "googleMaps": "Open location on Google Maps",
+    "learnMore": "Learn More",
+    "socialLinks": "Social links",
+    "siteNavigation": "Site navigation"
+  },
+  "metadata": {
+    "home": {
+      "title": "Etkaan | Tax, Company Formation, and Financial Advisory Services",
+      "description": "Etkaan provides tax, company formation, accounting, and financial advisory services in Egypt with fast WhatsApp contact."
+    },
+    "services": {
+      "title": "Etkaan Services",
+      "description": "Explore Etkaan services for taxes, company formation, accounting, financial reporting, and advisory."
+    },
+    "about": {
+      "title": "About | Etkaan",
+      "description": "Etkaan is a specialized office for legal accounting, financial advisory, and business services in Egypt."
+    },
+    "contact": {
+      "title": "Contact | Etkaan",
+      "description": "Contact Etkaan by phone, WhatsApp, or email to request the right service cost for your business."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Etkaan",
+      "description": "Etkaan explains how contact data is only used to respond to your request and provide the appropriate quotation."
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Accounting and tax services in Egypt",
+      "title": "Tax, Company Formation, and Financial Advisory Services",
+      "subtitle": "We help you stay tax compliant, establish your company, and manage your finances without complexity."
+    },
+    "problemSolution": {
+      "title": "We remove the complexity from your path",
+      "problemLabel": "Problem",
+      "problem": "Tax and accounting procedures are complex and consume business owners’ time.",
+      "solutionLabel": "Solution",
+      "solution": "We handle the financial and legal work so you can focus on growing your business."
+    },
+    "services": {
+      "title": "Choose the required service",
+      "subtitle": "Four clear services based on your business need.",
+      "taxes": {
+        "title": "Taxes",
+        "description": "Complete management of tax obligations: returns, VAT, and tax audits.",
+        "button": "Ask About Taxes",
+        "detailsLabel": "Tax service details",
+        "details": [
+          "Preparing and filing tax returns",
+          "Value-added tax",
+          "Tax audits and representation before authorities",
+          "Tax planning",
+          "Dispute resolution and tax committees"
+        ]
+      },
+      "company": {
+        "title": "Company Formation",
+        "description": "Formation of sole proprietorships and limited liability companies, including official paperwork.",
+        "button": "Start Your Company"
+      },
+      "other": {
+        "title": "Accounting, financial reporting, and financial advisory",
+        "description": "Accounting, financial reporting, and financial advisory.",
+        "button": "Learn More"
+      },
+      "sales": {
+        "title": "Sales & Business Growth Solutions",
+        "description": "We turn prospects into revenue through outreach, appointment setting, CRM management, qualification, support, and follow-ups.",
+        "button": "Ask About Sales Growth",
+        "detailsLabel": "Choose a growth focus",
+        "details": [
+          "Strategic Outreach",
+          "Qualified Appointment Setting",
+          "CRM Management",
+          "Lead Qualification",
+          "Customer Support",
+          "Smart Follow-ups"
+        ]
+      }
+    },
+    "why": {
+      "title": "Why Etkaan?",
+      "items": [
+        "Hands-on experience in the Egyptian market",
+        "Fast and accurate execution",
+        "Full legal compliance",
+        "Direct WhatsApp communication"
+      ]
+    },
+    "finalCta": {
+      "title": "Get your service cost within minutes"
+    }
+  },
+  "servicesPage": {
+    "eyebrow": "Etkaan Services",
+    "title": "Clear accounting and tax support for business owners",
+    "intro": "Choose the service closest to your need, leave your details, and we will review your business type and size before contacting you with the right details.",
+    "sectionTitle": "Choose the required service",
+    "closingTitle": "Not sure which service fits?",
+    "closingText": "Submit your request and we will help identify the right path for your business activity."
+  },
+  "aboutPage": {
+    "eyebrow": "About",
+    "title": "A focused team for clearer business finances",
+    "body": "We are a specialized office providing legal accounting, financial advisory, and business services. We help individuals and companies manage their financial and legal obligations accurately and systematically.\nWe provide integrated solutions covering taxes, company formation, and accounting services, with a focus on simplifying procedures and reducing risk to ensure full legal compliance and financial stability for your business.\nWe rely on practical experience in the Egyptian market and a real understanding of business owners’ needs, which enables us to deliver fast, effective services that support project growth and sound financial decisions.\nOur goal is to be a trusted partner in managing the financial and legal side of your business, not just a service provider.",
+    "valuesTitle": "How we work",
+    "values": [
+      "Understand the business activity before recommending any step",
+      "Direct and clear communication with the decision maker",
+      "Organized execution that preserves legal compliance"
+    ],
+    "ctaTitle": "Start by requesting the right service cost"
+  },
+  "contactPage": {
+    "eyebrow": "Contact",
+    "title": "Ready to receive your request",
+    "intro": "Send your details through the quick form or contact us directly on WhatsApp.",
+    "cta": "Request Service Cost",
+    "socialTitle": "Follow Etkaan",
+    "detailsTitle": "Contact details"
+  },
+  "privacyPage": {
+    "eyebrow": "Privacy Policy",
+    "title": "Your privacy matters",
+    "body": "We do not share your data (name, phone number, governorate) with any third party. Your data is only used to contact you regarding your request and provide the appropriate quotation."
+  },
+  "leadForm": {
+    "title": "Get Service Cost",
+    "description": "Leave your details and we will contact you to determine the appropriate cost based on the type and size of the business.",
+    "name": "Name",
+    "phone": "Phone number",
+    "governorate": "Governorate",
+    "service": "Service needed",
+    "serviceCategory": "Service category",
+    "serviceDetail": "Requested detail",
+    "selectGovernorate": "Select governorate",
+    "selectService": "Select service",
+    "selectServiceCategory": "Select service category",
+    "selectServiceDetail": "Select requested detail",
+    "submit": "Submit Request",
+    "submitting": "Submitting...",
+    "success": "Your request was received successfully. We will contact you soon to determine the appropriate service cost.",
+    "whatsappNow": "Chat on WhatsApp Now",
+    "error": "We could not save the request right now. You can contact us directly on WhatsApp.",
+    "requiredNotice": "All fields are required.",
+    "validation": {
+      "nameRequired": "Please enter your name",
+      "phoneRequired": "Please enter your phone number",
+      "phoneInvalid": "Please enter a valid Egyptian mobile number",
+      "governorateRequired": "Please select your governorate",
+      "serviceRequired": "Please select the required service",
+      "serviceCategoryRequired": "Please select a service category",
+      "serviceDetailRequired": "Please select the requested detail"
+    }
+  },
+  "options": {
+      "services": {
+        "taxes": "Taxes",
+        "company_formation": "Company Formation",
+        "other_services": "Accounting, financial reporting, and financial advisory",
+        "sales_growth": "Sales & Business Growth Solutions"
+      }
+  },
+  "footer": {
+    "summary": "Etkaan helps business owners in Egypt manage taxes, formation, and accounting clearly and without complexity.",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+}
