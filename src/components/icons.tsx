@@ -103,6 +103,28 @@ export function PhoneIcon({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
+export function FacebookIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className}>
+      <path
+        d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.6 1.6-1.6H16V4.8c-.5-.1-1.2-.2-2.1-.2-2.1 0-3.6 1.3-3.6 3.8V11H8v3h2.2v7h3.3Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+export function LinkedInIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className}>
+      <path
+        d="M6.8 8.4A1.8 1.8 0 1 1 6.8 4.8a1.8 1.8 0 0 1 0 3.6ZM5.2 9.8h3.1V19H5.2V9.8Zm5 0h3v1.3h.1c.4-.8 1.5-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19H17v-4.2c0-1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3V19h-3.1V9.8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 32 32" className={className}>

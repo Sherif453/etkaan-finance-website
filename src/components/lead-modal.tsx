@@ -32,8 +32,14 @@ import {
 import { createWhatsAppMessage, createWhatsAppUrl } from "@/lib/whatsapp";
 import type { Locale } from "@/i18n/routing";
 
+type LeadModalPrefill = {
+  service?: ServiceId;
+  serviceCategory?: string;
+  serviceDetail?: string;
+};
+
 type LeadModalContextValue = {
-  openLeadModal: (service?: ServiceId) => void;
+  openLeadModal: (prefill?: LeadModalPrefill) => void;
 };
 
 type SubmitState =
@@ -55,11 +61,11 @@ export function useLeadModal() {
 
 export function LeadModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [initialService, setInitialService] = useState<ServiceId | undefined>();
+  const [initialPrefill, setInitialPrefill] = useState<LeadModalPrefill | undefined>();
   const [modalKey, setModalKey] = useState(0);
 
-  const openLeadModal = useCallback((service?: ServiceId) => {
-    setInitialService(service);
+  const openLeadModal = useCallback((prefill?: LeadModalPrefill) => {
+    setInitialPrefill(prefill);
     setModalKey((currentKey) => currentKey + 1);
     setIsOpen(true);
   }, []);
@@ -70,7 +76,7 @@ export function LeadModalProvider({ children }: { children: ReactNode }) {
       <Suspense fallback={null}>
         <LeadModal
           key={modalKey}
-          initialService={initialService}
+          initialPrefill={initialPrefill}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
         />
@@ -80,11 +86,11 @@ export function LeadModalProvider({ children }: { children: ReactNode }) {
 }
 
 function LeadModal({
-  initialService,
+  initialPrefill,
   isOpen,
   onClose
 }: {
-  initialService?: ServiceId;
+  initialPrefill?: LeadModalPrefill;
   isOpen: boolean;
   onClose: () => void;
 }) {
@@ -121,19 +127,19 @@ function LeadModal({
   } = useForm<LeadInput, unknown, LeadData>({
     resolver: zodResolver(schema),
     mode: "onBlur",
-    defaultValues: {
-      locale,
-      sourcePage: "",
-      name: "",
-      phone: "",
-      governorate: "",
-      service: "",
-      serviceCategory: "",
-      serviceDetail: "",
-      utm_source: "",
-      utm_medium: "",
-      utm_campaign: ""
-    }
+      defaultValues: {
+        locale,
+        sourcePage: "",
+        name: "",
+        phone: "",
+        governorate: "",
+        service: initialPrefill?.service || "",
+        serviceCategory: initialPrefill?.serviceCategory || "",
+        serviceDetail: initialPrefill?.serviceDetail || "",
+        utm_source: "",
+        utm_medium: "",
+        utm_campaign: ""
+      }
   });
 
   const watchedGovernorate = useWatch({
@@ -187,29 +193,47 @@ function LeadModal({
     setValue("utm_medium", searchParams.get("utm_medium") || "");
     setValue("utm_campaign", searchParams.get("utm_campaign") || "");
 
-    if (initialService) {
-      setValue("service", initialService);
-    }
-
     window.setTimeout(() => firstInputRef.current?.focus(), 0);
-  }, [initialService, isOpen, locale, pathname, searchParams, setValue]);
+  }, [isOpen, locale, pathname, searchParams, setValue]);
 
   useEffect(() => {
     if (!isOpen) {
+      return;
+    }
+
+    const hasValidCategory = serviceDetailGroups.some(
+      (group) => group.id === watchedServiceCategory
+    );
+
+    if (hasValidCategory) {
       return;
     }
 
     setValue("serviceCategory", firstServiceDetailGroupId);
     setValue("serviceDetail", "");
-  }, [firstServiceDetailGroupId, isOpen, setValue, watchedService]);
+  }, [
+    firstServiceDetailGroupId,
+    isOpen,
+    serviceDetailGroups,
+    setValue,
+    watchedServiceCategory
+  ]);
 
   useEffect(() => {
     if (!isOpen) {
       return;
     }
 
+    const hasValidDetail = selectedServiceGroup?.options.some(
+      (option) => option.id === watchedServiceDetail
+    );
+
+    if (hasValidDetail) {
+      return;
+    }
+
     setValue("serviceDetail", "");
-  }, [isOpen, setValue, watchedServiceCategory]);
+  }, [isOpen, selectedServiceGroup, setValue, watchedServiceDetail]);
 
   useEffect(() => {
     if (!isOpen) {

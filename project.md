@@ -40,7 +40,7 @@ Do not show any service prices anywhere on the site. Pricing is handled manually
   - Phone number
   - Governorate
   - Service needed
-- Taxes, Accounting/Financial Advisory, and Sales Growth each add scoped service-specific category/detail dropdowns after the main service is selected.
+- Taxes, Company Formation, Accounting/Financial Advisory, and Sales Growth each add scoped service-specific category/detail dropdowns after the main service is selected.
 - After a successful save, show the localized success state and open WhatsApp with a prefilled message.
 - If Google Sheets saving fails, show a friendly localized error and keep a manual WhatsApp fallback button visible.
 
@@ -93,6 +93,13 @@ Do not show the sales-specific "Why Us", results, process, or trial/consultation
 
 ## Current Services
 
+- The Services navigation item links to the dedicated Services page.
+- On desktop, the Services page shows the introductory section above a long right-aligned list of all services and their subsections.
+- On mobile, the same list stacks naturally below the introductory section.
+- The Services page list shows only service names and subsection names, without the long service descriptions.
+- Every service name and every subsection in the Services page list is clickable and opens the shared lead modal.
+- If a subsection is clicked, the modal opens with the exact service and subsection prefilled.
+
 - Taxes / الضرائب
   - Include a native dropdown/details area with:
     - إعداد وتقديم الإقرارات الضريبية
@@ -101,6 +108,13 @@ Do not show the sales-specific "Why Us", results, process, or trial/consultation
     - التخطيط الضريبي
     - فض المنازعات واللجان
 - Company Formation / تأسيس الشركات
+  - In the inquiry modal, show scoped options for:
+    - اختيار الشكل القانوني الأنسب
+    - إعداد وصياغة عقود التأسيس
+    - استخراج السجل التجاري والبطاقة الضريبية والتأمينات
+    - فتح الملفات الحكومية
+    - هيكلة الكيان قانونيًا وماليًا
+    - دعم ما بعد التأسيس
 - Accounting, financial reporting, and financial advisory / المحاسبة والتقارير والاستشارات المالية
   - In the inquiry modal, show two extra dropdowns after this main service is selected:
     - Category:
@@ -140,8 +154,7 @@ Do not show the sales-specific "Why Us", results, process, or trial/consultation
 Rules for the shared lead modal:
 
 - The main service dropdown always contains the four top-level services only.
-- Taxes, Accounting/Financial Advisory, and Sales Growth each show scoped category/detail dropdowns.
-- Company Formation does not show extra dropdowns.
+- Taxes, Company Formation, Accounting/Financial Advisory, and Sales Growth each show scoped category/detail dropdowns.
 - Do not mix detail options between services.
 
 ## Tech Stack

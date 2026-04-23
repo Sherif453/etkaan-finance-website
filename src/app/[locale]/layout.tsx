@@ -15,6 +15,7 @@ const cairo = Cairo({
   subsets: ["arabic", "latin"],
   weight: ["400", "600", "700", "900"],
   display: "swap",
+  preload: false,
   variable: "--font-arabic"
 });
 
@@ -22,6 +23,7 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "600", "700", "900"],
   display: "swap",
+  preload: false,
   variable: "--font-latin"
 });
 
@@ -55,7 +57,9 @@ export async function generateMetadata({
     },
     description,
     icons: {
-      icon: "/favicon.svg"
+      icon: "/brand/etkaan-emblem.png",
+      apple: "/brand/etkaan-emblem.png",
+      shortcut: "/favicon.ico"
     },
     openGraph: {
       type: "website",

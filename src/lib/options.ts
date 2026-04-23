@@ -22,6 +22,25 @@ export const services = [
   }
 ] as const;
 
+export const companyFormationHighlights = {
+  ar: [
+    "اختيار الشكل القانوني الأنسب",
+    "إعداد وصياغة عقود التأسيس",
+    "استخراج السجل التجاري والبطاقة الضريبية والتأمينات",
+    "فتح الملفات الحكومية",
+    "هيكلة الكيان قانونيًا وماليًا",
+    "دعم ما بعد التأسيس"
+  ],
+  en: [
+    "Choosing the right legal structure",
+    "Drafting incorporation documents",
+    "Issuing commercial registration, tax card, and insurance records",
+    "Opening government files",
+    "Structuring the entity legally and financially",
+    "Post-formation support"
+  ]
+} as const;
+
 export type GovernorateId = (typeof governorates)[number]["id"];
 export type ServiceId = (typeof services)[number]["id"];
 
@@ -66,6 +85,45 @@ export const serviceDetailGroups = {
           id: "tax_disputes",
           ar: "فض المنازعات واللجان",
           en: "Dispute resolution and tax committees"
+        }
+      ]
+    }
+  ],
+  company_formation: [
+    {
+      id: "company_formation_services",
+      ar: "نطاق الخدمة",
+      en: "Service scope",
+      options: [
+        {
+          id: "legal_structure",
+          ar: "اختيار الشكل القانوني الأنسب",
+          en: "Choosing the right legal structure"
+        },
+        {
+          id: "incorporation_documents",
+          ar: "إعداد وصياغة عقود التأسيس",
+          en: "Drafting incorporation documents"
+        },
+        {
+          id: "official_registrations",
+          ar: "استخراج السجل التجاري والبطاقة الضريبية والتأمينات",
+          en: "Issuing commercial registration, tax card, and insurance records"
+        },
+        {
+          id: "government_files",
+          ar: "فتح الملفات الحكومية",
+          en: "Opening government files"
+        },
+        {
+          id: "entity_structuring",
+          ar: "هيكلة الكيان قانونيًا وماليًا",
+          en: "Structuring the entity legally and financially"
+        },
+        {
+          id: "post_formation_support",
+          ar: "دعم ما بعد التأسيس",
+          en: "Post-formation support"
         }
       ]
     }

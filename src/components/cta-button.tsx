@@ -6,12 +6,16 @@ import type { ServiceId } from "@/lib/options";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
+  serviceCategory?: string;
+  serviceDetail?: string;
   service?: ServiceId;
   tone?: "green" | "light";
 };
 
 export function CtaButton({
   children,
+  serviceCategory,
+  serviceDetail,
   service,
   tone = "green",
   className = "",
@@ -29,7 +33,13 @@ export function CtaButton({
     <button
       type="button"
       className={`${base} ${styles} ${className}`}
-      onClick={() => openLeadModal(service)}
+      onClick={() =>
+        openLeadModal({
+          service,
+          serviceCategory,
+          serviceDetail
+        })
+      }
       {...props}
     >
       {children}

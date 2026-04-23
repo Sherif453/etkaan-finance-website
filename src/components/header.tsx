@@ -13,21 +13,21 @@ export async function Header({ locale }: { locale: Locale }) {
   const brandName = locale === "ar" ? "إتقان" : "Etkaan";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]/94 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--surface)]">
       <div
         dir="ltr"
-        className="container-shell grid min-h-24 grid-cols-[minmax(0,1fr)_minmax(218px,58%)_auto] items-center gap-2 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(292px,58%)_auto] lg:min-h-40 lg:grid-cols-[minmax(40px,1fr)_minmax(540px,620px)_minmax(260px,auto)_auto] lg:gap-5"
+        className="container-shell grid min-h-24 grid-cols-[minmax(0,1fr)_minmax(218px,58%)_auto] items-center gap-2 py-3 sm:grid-cols-[minmax(0,1fr)_minmax(292px,58%)_auto] lg:min-h-40 lg:grid-cols-[minmax(24px,1fr)_minmax(460px,540px)_minmax(360px,auto)_auto] lg:gap-4"
       >
         <nav
           aria-label={common("siteNavigation")}
           dir={locale === "ar" ? "rtl" : "ltr"}
-          className="col-start-3 row-start-1 hidden min-w-0 flex-wrap items-center justify-end gap-1 lg:flex"
+          className="col-start-3 row-start-1 hidden min-w-0 items-center justify-end gap-1 whitespace-nowrap lg:flex"
         >
           {headerNavItems.map((item) => (
             <Link
               key={item.key}
               href={item.href}
-              className="rounded-[8px] px-3 py-2 text-sm font-semibold text-[var(--muted)] hover:bg-[var(--surface-muted)] hover:text-[var(--text)] xl:px-4"
+              className="rounded-[8px] px-3 py-2 text-sm font-semibold text-[var(--muted)] hover:bg-[var(--surface-muted)] hover:text-[var(--text)] xl:px-3"
             >
               {nav(item.key)}
             </Link>

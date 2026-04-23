@@ -3,9 +3,17 @@ node_modules
 out
 dist
 coverage
+.turbo
+.cache
+.pnpm-store
 .env
 .env*.local
 *.log
+*.tsbuildinfo
 tsconfig.tsbuildinfo
+next-env.d.ts
 vercel
 .vercel
+.vscode
+.idea
+.DS_Store

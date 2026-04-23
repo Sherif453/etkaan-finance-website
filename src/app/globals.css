@@ -20,7 +20,6 @@
 
 html {
   background: var(--background);
-  scroll-behavior: smooth;
 }
 
 body {
@@ -62,7 +61,8 @@ select:focus-visible {
 }
 
 .container-shell {
-  width: min(100% - 32px, 1120px);
+  width: calc(100% - 32px);
+  max-width: 1120px;
   margin-inline: auto;
 }
 
@@ -75,4 +75,3 @@ select:focus-visible {
     padding-block: 80px;
   }
 }
-
