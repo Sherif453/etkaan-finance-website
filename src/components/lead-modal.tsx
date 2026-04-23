@@ -151,6 +151,7 @@ function LeadModal({
       name: "name"
     }) || "";
   const serviceDetailGroups = getServiceDetailGroups(watchedService);
+  const firstServiceDetailGroupId = serviceDetailGroups[0]?.id || "";
   const selectedServiceGroup = serviceDetailGroups.find(
     (group) => group.id === watchedServiceCategory
   );
@@ -198,9 +199,9 @@ function LeadModal({
       return;
     }
 
-    setValue("serviceCategory", "");
+    setValue("serviceCategory", firstServiceDetailGroupId);
     setValue("serviceDetail", "");
-  }, [isOpen, setValue, watchedService]);
+  }, [firstServiceDetailGroupId, isOpen, setValue, watchedService]);
 
   useEffect(() => {
     if (!isOpen) {

@@ -121,7 +121,7 @@ Do not show the sales-specific "Why Us", results, process, or trial/consultation
         - إعادة الهيكلة المالية
         - تسعير الخدمات والمنتجات
         - تحسين الأداء وتقليل التكاليف
-- Sales & Business Growth Solutions / حلول تطوير المبيعات ونمو الأعمال
+- Sales & Business Growth Solutions / خدمات رجال الاعمال
   - This appears as the fourth service card at the top of the home page.
   - Its inquiry button opens the shared lead modal with this main service selected.
   - The modal then shows service-specific dropdowns for only the six sales-growth options:

@@ -17,7 +17,7 @@ export const services = [
   },
   {
     id: "sales_growth",
-    ar: "حلول تطوير المبيعات ونمو الأعمال",
+    ar: "خدمات رجال الاعمال",
     en: "Sales & Business Growth Solutions"
   }
 ] as const;
@@ -163,7 +163,7 @@ export const serviceDetailGroups = {
   sales_growth: [
     {
       id: "sales_growth_solutions",
-      ar: "حلول تطوير المبيعات ونمو الأعمال",
+      ar: "خدمات رجال الاعمال",
       en: "Sales and business growth solutions",
       options: [
         {
