@@ -59,7 +59,7 @@ export async function generateMetadata({
     icons: {
       icon: "/brand/etkaan-emblem.png",
       apple: "/brand/etkaan-emblem.png",
-      shortcut: "/favicon.ico"
+      shortcut: "/favicon.svg"
     },
     openGraph: {
       type: "website",

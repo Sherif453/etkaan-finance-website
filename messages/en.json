@@ -126,12 +126,16 @@
     "eyebrow": "About",
     "title": "A focused team for clearer business finances",
     "body": "We are a specialized office providing legal accounting, financial advisory, and business services. We help individuals and companies manage their financial and legal obligations accurately and systematically.\nWe provide integrated solutions covering taxes, company formation, and accounting services, with a focus on simplifying procedures and reducing risk to ensure full legal compliance and financial stability for your business.\nWe rely on practical experience in the Egyptian market and a real understanding of business owners’ needs, which enables us to deliver fast, effective services that support project growth and sound financial decisions.\nOur goal is to be a trusted partner in managing the financial and legal side of your business, not just a service provider.",
+    "ownerLabel": "Business Owner",
     "valuesTitle": "How we work",
     "values": [
       "Understand the business activity before recommending any step",
       "Direct and clear communication with the decision maker",
       "Organized execution that preserves legal compliance"
     ],
+    "partnersTitle": "Success Partners",
+    "previousPartner": "Previous",
+    "nextPartner": "Next",
     "ctaTitle": "Start by requesting the right service cost"
   },
   "contactPage": {

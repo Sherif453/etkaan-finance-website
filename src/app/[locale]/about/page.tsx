@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CtaButton } from "@/components/cta-button";
 import { CheckIcon } from "@/components/icons";
+import { MediaFrame } from "@/components/media-frame";
+import { PartnerSlideshow } from "@/components/partner-slideshow";
 import type { Locale } from "@/i18n/routing";
+import { businessOwner, successPartners } from "@/lib/about-media";
 import { createPageMetadata } from "@/lib/metadata";
 
 type Props = {
@@ -20,6 +23,15 @@ export default async function AboutPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "aboutPage" });
   const common = await getTranslations({ locale, namespace: "common" });
   const values = t.raw("values") as string[];
+  const bodyParagraphs = t("body")
+    .split("\n")
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+  const [introParagraph, ...remainingParagraphs] = bodyParagraphs;
+  const partnerSlides = successPartners.map((slide) => ({
+    src: slide.src,
+    alt: slide.alt[locale]
+  }));
 
   return (
     <>
@@ -32,9 +44,31 @@ export default async function AboutPage({ params }: Props) {
             <h1 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
               {t("title")}
             </h1>
-            <p className="mt-5 whitespace-pre-line text-lg leading-9 text-[var(--muted)]">
-              {t("body")}
-            </p>
+            <div className="mt-6 grid grid-cols-[160px_1fr] gap-4 md:grid-cols-[240px_1fr] md:gap-6">
+              <MediaFrame
+                src={businessOwner.src}
+                alt={businessOwner.alt[locale]}
+                label={t("ownerLabel")}
+                className="aspect-[4/5] self-start"
+                fit="cover"
+                priority
+              />
+              <div>
+                <p className="text-lg leading-8 text-[var(--muted)] md:leading-9">
+                  {introParagraph}
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 grid gap-5">
+              {remainingParagraphs.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="text-lg leading-8 text-[var(--muted)] md:leading-9"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
           <div className="rounded-[8px] border border-[var(--border)] bg-[var(--surface)] p-6">
             <h2 className="text-2xl font-bold">{t("valuesTitle")}</h2>
@@ -49,6 +83,17 @@ export default async function AboutPage({ params }: Props) {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="pb-14 md:pb-20">
+        <div className="container-shell">
+          <PartnerSlideshow
+            title={t("partnersTitle")}
+            previousLabel={t("previousPartner")}
+            nextLabel={t("nextPartner")}
+            slides={partnerSlides}
+          />
         </div>
       </section>
 
