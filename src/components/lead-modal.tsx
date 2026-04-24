@@ -13,7 +13,11 @@ import {
   type ReactNode
 } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useSearchParams } from "next/navigation";
+import {
+  type ReadonlyURLSearchParams,
+  usePathname,
+  useSearchParams
+} from "next/navigation";
 import { useForm, useWatch } from "react-hook-form";
 import {
   getServiceCategoryLabel,
@@ -46,6 +50,78 @@ type SubmitState =
   | { status: "idle" }
   | { status: "success"; whatsappUrl: string }
   | { status: "error"; whatsappUrl: string };
+
+type UtmValues = {
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+};
+
+const UTM_SESSION_STORAGE_KEY = "lead-attribution";
+
+function readUtmValues(searchParams: ReadonlyURLSearchParams): UtmValues {
+  return {
+    utm_source: searchParams.get("utm_source")?.trim() || "",
+    utm_medium: searchParams.get("utm_medium")?.trim() || "",
+    utm_campaign: searchParams.get("utm_campaign")?.trim() || ""
+  };
+}
+
+function hasAnyUtmValue(utmValues: UtmValues) {
+  return Boolean(
+    utmValues.utm_source || utmValues.utm_medium || utmValues.utm_campaign
+  );
+}
+
+function readStoredUtmValues(): UtmValues {
+  if (typeof window === "undefined") {
+    return {
+      utm_source: "",
+      utm_medium: "",
+      utm_campaign: ""
+    };
+  }
+
+  const storedValue = window.sessionStorage.getItem(UTM_SESSION_STORAGE_KEY);
+
+  if (!storedValue) {
+    return {
+      utm_source: "",
+      utm_medium: "",
+      utm_campaign: ""
+    };
+  }
+
+  try {
+    const parsed = JSON.parse(storedValue) as Partial<UtmValues>;
+
+    return {
+      utm_source:
+        typeof parsed.utm_source === "string" ? parsed.utm_source.trim() : "",
+      utm_medium:
+        typeof parsed.utm_medium === "string" ? parsed.utm_medium.trim() : "",
+      utm_campaign:
+        typeof parsed.utm_campaign === "string" ? parsed.utm_campaign.trim() : ""
+    };
+  } catch {
+    return {
+      utm_source: "",
+      utm_medium: "",
+      utm_campaign: ""
+    };
+  }
+}
+
+function writeStoredUtmValues(utmValues: UtmValues) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  window.sessionStorage.setItem(
+    UTM_SESSION_STORAGE_KEY,
+    JSON.stringify(utmValues)
+  );
+}
 
 const LeadModalContext = createContext<LeadModalContextValue | null>(null);
 
@@ -102,6 +178,17 @@ function LeadModal({
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstInputRef = useRef<HTMLInputElement | null>(null);
   const [submitState, setSubmitState] = useState<SubmitState>({ status: "idle" });
+  const currentUtmValues = useMemo(
+    () => readUtmValues(searchParams),
+    [searchParams]
+  );
+  const sessionUtmValues = useMemo(
+    () =>
+      hasAnyUtmValue(currentUtmValues)
+        ? currentUtmValues
+        : readStoredUtmValues(),
+    [currentUtmValues]
+  );
 
   const schema = useMemo(
     () =>
@@ -189,12 +276,12 @@ function LeadModal({
 
     setValue("locale", locale);
     setValue("sourcePage", pathname || "");
-    setValue("utm_source", searchParams.get("utm_source") || "");
-    setValue("utm_medium", searchParams.get("utm_medium") || "");
-    setValue("utm_campaign", searchParams.get("utm_campaign") || "");
+    setValue("utm_source", sessionUtmValues.utm_source);
+    setValue("utm_medium", sessionUtmValues.utm_medium);
+    setValue("utm_campaign", sessionUtmValues.utm_campaign);
 
     window.setTimeout(() => firstInputRef.current?.focus(), 0);
-  }, [isOpen, locale, pathname, searchParams, setValue]);
+  }, [isOpen, locale, pathname, sessionUtmValues, setValue]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -279,6 +366,14 @@ function LeadModal({
     };
   }, [isOpen, onClose]);
 
+  useEffect(() => {
+    if (!hasAnyUtmValue(currentUtmValues)) {
+      return;
+    }
+
+    writeStoredUtmValues(currentUtmValues);
+  }, [currentUtmValues]);
+
   if (!isOpen) {
     return null;
   }
@@ -296,13 +391,19 @@ function LeadModal({
   async function onSubmit(data: LeadData) {
     setSubmitState({ status: "idle" });
 
+    const submissionData: LeadData = {
+      ...data,
+      sourcePage: pathname || "",
+      ...sessionUtmValues
+    };
+
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(submissionData)
       });
 
       const payload = (await response.json()) as {
@@ -328,9 +429,7 @@ function LeadModal({
         service: "",
         serviceCategory: "",
         serviceDetail: "",
-        utm_source: searchParams.get("utm_source") || "",
-        utm_medium: searchParams.get("utm_medium") || "",
-        utm_campaign: searchParams.get("utm_campaign") || ""
+        ...sessionUtmValues
       });
 
       window.setTimeout(() => {
