@@ -32,6 +32,21 @@ export default async function AboutPage({ params }: Props) {
     src: slide.src,
     alt: slide.alt[locale]
   }));
+  const valuesCard = (
+    <div className="rounded-[8px] border border-[var(--border)] bg-[var(--surface)] p-6">
+      <h2 className="text-2xl font-bold">{t("valuesTitle")}</h2>
+      <ul className="mt-5 grid gap-4">
+        {values.map((item) => (
+          <li key={item} className="flex items-start gap-3 leading-7">
+            <span className="mt-1 text-[var(--primary)]">
+              <CheckIcon />
+            </span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
   return (
     <>
@@ -44,12 +59,13 @@ export default async function AboutPage({ params }: Props) {
             <h1 className="mt-4 text-4xl font-black leading-tight md:text-5xl">
               {t("title")}
             </h1>
-            <div className="mt-6 grid grid-cols-[160px_1fr] gap-4 md:grid-cols-[240px_1fr] md:gap-6">
+            <div className="mt-6 grid grid-cols-[176px_1fr] gap-5 sm:grid-cols-[200px_1fr] md:grid-cols-[240px_1fr] md:gap-6">
               <MediaFrame
                 src={businessOwner.src}
                 alt={businessOwner.alt[locale]}
                 label={t("ownerLabel")}
-                className="aspect-[4/5] self-start"
+                className="aspect-[3/4] self-start sm:aspect-[4/5]"
+                imageClassName="object-[42%_center]"
                 fit="cover"
                 priority
               />
@@ -70,19 +86,7 @@ export default async function AboutPage({ params }: Props) {
               ))}
             </div>
           </div>
-          <div className="rounded-[8px] border border-[var(--border)] bg-[var(--surface)] p-6">
-            <h2 className="text-2xl font-bold">{t("valuesTitle")}</h2>
-            <ul className="mt-5 grid gap-4">
-              {values.map((item) => (
-                <li key={item} className="flex items-start gap-3 leading-7">
-                  <span className="mt-1 text-[var(--primary)]">
-                    <CheckIcon />
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="hidden lg:block">{valuesCard}</div>
         </div>
       </section>
 
@@ -95,6 +99,10 @@ export default async function AboutPage({ params }: Props) {
             slides={partnerSlides}
           />
         </div>
+      </section>
+
+      <section className="pb-14 lg:hidden">
+        <div className="container-shell">{valuesCard}</div>
       </section>
 
       <section className="section-y bg-[var(--surface)]">
