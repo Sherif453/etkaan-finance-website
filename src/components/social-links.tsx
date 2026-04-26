@@ -1,4 +1,4 @@
-import { FacebookIcon, LinkedInIcon } from "@/components/icons";
+import { FacebookIcon, LinkedInIcon, YouTubeIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site";
 
 const socialItems = [
@@ -13,6 +13,12 @@ const socialItems = [
     label: "LinkedIn",
     url: siteConfig.socials.linkedin,
     icon: <LinkedInIcon className="h-5 w-5" />
+  },
+  {
+    key: "youtube",
+    label: "YouTube",
+    url: siteConfig.socials.youtube,
+    icon: <YouTubeIcon className="h-5 w-5" />
   }
 ] as const;
 

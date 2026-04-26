@@ -71,6 +71,7 @@ Ask the developer or site admin to update these environment variables:
 - Google Maps link: `NEXT_PUBLIC_GOOGLE_MAPS_URL`
 - Facebook: `NEXT_PUBLIC_FACEBOOK_URL`
 - LinkedIn: `NEXT_PUBLIC_LINKEDIN_URL`
+- YouTube: `NEXT_PUBLIC_YOUTUBE_URL`
 - WhatsApp number: `NEXT_PUBLIC_WHATSAPP_NUMBER`
 
 The current email placeholder is:

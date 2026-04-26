@@ -125,6 +125,18 @@ export function LinkedInIcon({ className = "h-5 w-5" }: { className?: string }) 
   );
 }
 
+export function YouTubeIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className}>
+      <path
+        d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2C2 9 2 12 2 12s0 3 .4 4.8a2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2c.4-1.8.4-4.8.4-4.8s0-3-.4-4.8Z"
+        fill="currentColor"
+      />
+      <path d="m10 15.5 5-3.5-5-3.5v7Z" fill="var(--surface)" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({ className = "h-6 w-6" }: { className?: string }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 32 32" className={className}>
