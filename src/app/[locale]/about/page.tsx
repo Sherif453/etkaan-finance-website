@@ -4,6 +4,7 @@ import { CtaButton } from "@/components/cta-button";
 import { CheckIcon } from "@/components/icons";
 import { MediaFrame } from "@/components/media-frame";
 import { PartnerSlideshow } from "@/components/partner-slideshow";
+import { SocialLinks } from "@/components/social-links";
 import type { Locale } from "@/i18n/routing";
 import { businessOwner, successPartners } from "@/lib/about-media";
 import { createPageMetadata } from "@/lib/metadata";
@@ -47,6 +48,12 @@ export default async function AboutPage({ params }: Props) {
       </ul>
     </div>
   );
+  const socialCard = (
+    <div className="rounded-[8px] border border-[var(--border)] bg-[var(--surface)] p-6">
+      <h2 className="text-2xl font-bold">{t("socialTitle")}</h2>
+      <SocialLinks className="mt-4" />
+    </div>
+  );
 
   return (
     <>
@@ -86,7 +93,10 @@ export default async function AboutPage({ params }: Props) {
               ))}
             </div>
           </div>
-          <div className="hidden lg:block">{valuesCard}</div>
+          <div className="hidden gap-4 lg:grid">
+            {valuesCard}
+            {socialCard}
+          </div>
         </div>
       </section>
 
@@ -102,7 +112,10 @@ export default async function AboutPage({ params }: Props) {
       </section>
 
       <section className="pb-14 lg:hidden">
-        <div className="container-shell">{valuesCard}</div>
+        <div className="container-shell grid gap-4">
+          {valuesCard}
+          {socialCard}
+        </div>
       </section>
 
       <section className="section-y bg-[var(--surface)]">
