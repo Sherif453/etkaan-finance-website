@@ -483,7 +483,7 @@ function LeadModal({
         </div>
 
         {submitState.status === "success" ? (
-          <div className="mt-6 rounded-[8px] border border-green-200 bg-green-50 p-4 text-[var(--success)]">
+          <div className="mt-6 rounded-[8px] border border-[var(--success-border)] bg-[var(--success-bg)] p-4 text-[var(--success)]">
             <p className="leading-7">{t("success")}</p>
             <a
               className="mt-4 inline-flex min-h-12 items-center justify-center rounded-[8px] bg-[var(--primary)] px-5 py-3 text-sm font-bold text-white hover:bg-[var(--primary-dark)]"

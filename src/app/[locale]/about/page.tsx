@@ -5,9 +5,11 @@ import { CheckIcon } from "@/components/icons";
 import { MediaFrame } from "@/components/media-frame";
 import { PartnerSlideshow } from "@/components/partner-slideshow";
 import { SocialLinks } from "@/components/social-links";
+import { JsonLd, createBreadcrumbJsonLd } from "@/components/structured-data";
 import type { Locale } from "@/i18n/routing";
 import { businessOwner, successPartners } from "@/lib/about-media";
 import { createPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: Locale }>;
@@ -23,6 +25,8 @@ export default async function AboutPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "aboutPage" });
   const common = await getTranslations({ locale, namespace: "common" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const canonical = `${siteConfig.siteUrl}/${locale}/about`;
   const values = t.raw("values") as string[];
   const bodyParagraphs = t("body")
     .split("\n")
@@ -57,6 +61,18 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          {
+            name: nav("home"),
+            url: `${siteConfig.siteUrl}/${locale}`
+          },
+          {
+            name: nav("about"),
+            url: canonical
+          }
+        ])}
+      />
       <section className="section-y">
         <div className="container-shell grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-start">
           <div>

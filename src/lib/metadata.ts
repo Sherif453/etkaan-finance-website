@@ -13,6 +13,27 @@ const pagePaths: Record<PageKey, string> = {
   privacy: "/privacy-policy"
 };
 
+const keywords: Record<Locale, string[]> = {
+  ar: [
+    "إتقان",
+    "محاسب قانوني في مصر",
+    "خدمات الضرائب",
+    "تأسيس الشركات",
+    "محاسبة",
+    "استشارات مالية",
+    "الإسكندرية"
+  ],
+  en: [
+    "Etkaan",
+    "legal accountant in Egypt",
+    "tax services",
+    "company formation",
+    "accounting",
+    "financial advisory",
+    "Alexandria"
+  ]
+};
+
 export async function createPageMetadata(locale: Locale, page: PageKey) {
   const t = await getTranslations({ locale, namespace: `metadata.${page}` });
   const path = pagePaths[page];
@@ -20,13 +41,17 @@ export async function createPageMetadata(locale: Locale, page: PageKey) {
   const title = t("title");
   const description = t("description");
   const brandName = locale === "ar" ? "إتقان" : "Etkaan";
-  const ogImage = `${siteConfig.siteUrl}/brand/etkaan-emblem.png`;
+  const ogImage = `${siteConfig.siteUrl}/android-chrome-512x512.png`;
 
   return {
     title,
     description,
     applicationName: brandName,
+    authors: [{ name: brandName, url: siteConfig.siteUrl }],
     category: locale === "ar" ? "خدمات محاسبية وضرائب" : "Accounting and tax services",
+    creator: brandName,
+    keywords: keywords[locale],
+    publisher: brandName,
     robots: {
       follow: true,
       index: true,
@@ -52,6 +77,7 @@ export async function createPageMetadata(locale: Locale, page: PageKey) {
       url: canonical,
       siteName: brandName,
       locale: locale === "ar" ? "ar_EG" : "en_US",
+      alternateLocale: locale === "ar" ? "en_US" : "ar_EG",
       type: "website",
       images: [
         {

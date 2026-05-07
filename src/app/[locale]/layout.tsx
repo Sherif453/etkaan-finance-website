@@ -9,6 +9,7 @@ import { Footer } from "@/components/footer";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { Header } from "@/components/header";
 import { LeadModalProvider } from "@/components/lead-modal";
+import { JsonLd, createBusinessJsonLd } from "@/components/structured-data";
 import { routing, type Locale } from "@/i18n/routing";
 
 const cairo = Cairo({
@@ -56,10 +57,15 @@ export async function generateMetadata({
       template: `%s | ${title}`
     },
     description,
+    manifest: "/manifest.webmanifest",
     icons: {
-      icon: "/brand/etkaan-emblem.png",
-      apple: "/brand/etkaan-emblem.png",
-      shortcut: "/favicon.svg"
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+      shortcut: "/favicon.ico"
     },
     openGraph: {
       type: "website",
@@ -91,6 +97,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${cairo.variable} ${inter.variable}`}
     >
       <body>
+        <JsonLd data={createBusinessJsonLd(typedLocale)} />
         <NextIntlClientProvider messages={messages}>
           <LeadModalProvider>
             <Header locale={typedLocale} />

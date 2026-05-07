@@ -3,8 +3,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CtaButton } from "@/components/cta-button";
 import { AdvisoryIcon, CheckIcon, CompanyIcon, TaxIcon } from "@/components/icons";
 import { ServiceCard } from "@/components/service-card";
+import { JsonLd, createBreadcrumbJsonLd } from "@/components/structured-data";
 import type { Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: Locale }>;
@@ -21,9 +23,11 @@ export default async function HomePage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: "home" });
   const common = await getTranslations({ locale, namespace: "common" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
   const whyItems = t.raw("why.items") as string[];
   const taxDetails = t.raw("services.taxes.details") as string[];
   const salesDetails = t.raw("services.sales.details") as string[];
+  const canonical = `${siteConfig.siteUrl}/${locale}`;
 
   const services = [
     {
@@ -58,6 +62,14 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          {
+            name: nav("home"),
+            url: canonical
+          }
+        ])}
+      />
       <section className="pb-12 pt-8 md:pb-16 md:pt-12 lg:pb-20 lg:pt-14">
         <div className="container-shell">
           <div className="max-w-3xl">

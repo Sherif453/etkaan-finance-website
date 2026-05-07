@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CtaButton } from "@/components/cta-button";
+import { JsonLd, createBreadcrumbJsonLd } from "@/components/structured-data";
 import type { Locale } from "@/i18n/routing";
 import {
   getServiceDetailGroups
 } from "@/lib/options";
 import { createPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: Locale }>;
@@ -28,6 +30,8 @@ export default async function ServicesPage({ params }: Props) {
 
   const page = await getTranslations({ locale, namespace: "servicesPage" });
   const home = await getTranslations({ locale, namespace: "home.services" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const canonical = `${siteConfig.siteUrl}/${locale}/services`;
 
   const sections: ServiceSection[] = [
     {
@@ -82,6 +86,18 @@ export default async function ServicesPage({ params }: Props) {
 
   return (
     <section className="pb-12 pt-4 md:pb-16 md:pt-6 lg:pb-20 lg:pt-8">
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          {
+            name: nav("home"),
+            url: `${siteConfig.siteUrl}/${locale}`
+          },
+          {
+            name: nav("services"),
+            url: canonical
+          }
+        ])}
+      />
       <div className="container-shell">
         <div className="max-w-3xl">
           <p className="text-sm font-bold text-[var(--primary)]">

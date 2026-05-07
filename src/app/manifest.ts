@@ -9,17 +9,17 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/ar",
     display: "standalone",
     background_color: "#f7f3ec",
-    theme_color: "#0e6f68",
+    theme_color: "#0a2038",
     icons: [
       {
-        src: "/brand/etkaan-emblem.png",
-        sizes: "512x512",
+        src: "/android-chrome-192x192.png",
+        sizes: "192x192",
         type: "image/png"
       },
       {
-        src: "/favicon.svg",
-        sizes: "any",
-        type: "image/svg+xml"
+        src: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png"
       }
     ]
   };
