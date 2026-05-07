@@ -44,6 +44,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etkaan.com";
   const title = locale === "en" ? "Etkaan" : "إتقان";
+  const faviconUrl = "/favicon.ico?v=2";
+  const emblemUrl = "/brand/etkaan-emblem.png?v=2";
   const description =
     locale === "en"
       ? "Accounting, tax, company formation, and advisory services in Egypt."
@@ -57,9 +59,9 @@ export async function generateMetadata({
     },
     description,
     icons: {
-      icon: "/brand/etkaan-emblem.png",
-      apple: "/brand/etkaan-emblem.png",
-      shortcut: "/favicon.svg"
+      icon: faviconUrl,
+      apple: emblemUrl,
+      shortcut: faviconUrl
     },
     openGraph: {
       type: "website",

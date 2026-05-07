@@ -24,9 +24,9 @@ export function LocaleSwitcher() {
       <Image
         src={flagSrc}
         alt={flagAlt}
-        width={22}
-        height={15}
-        className="h-[13px] w-[19px] rounded-[2px] object-cover shadow-[inset_0_0_0_1px_rgba(0,0,0,0.18)] sm:h-[15px] sm:w-[22px]"
+        width={24}
+        height={16}
+        className="h-4 w-6 rounded-[2px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.22)]"
       />
       {languageCode}
     </Link>

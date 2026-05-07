@@ -98,6 +98,7 @@ export default async function ContactPage({ params }: Props) {
               href={siteConfig.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              style={{ color: "#fffdf8" }}
               className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-[8px] bg-[var(--primary)] px-5 py-3 text-sm font-bold text-white hover:bg-[var(--primary-dark)] sm:w-auto"
             >
               {common("googleMaps")}
