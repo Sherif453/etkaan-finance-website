@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CtaButton } from "@/components/cta-button";
 import { PhoneIcon } from "@/components/icons";
 import { SocialLinks } from "@/components/social-links";
+import { JsonLd, createBreadcrumbJsonLd } from "@/components/structured-data";
 import type { Locale } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
@@ -22,6 +23,8 @@ export default async function ContactPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "contactPage" });
   const common = await getTranslations({ locale, namespace: "common" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
+  const canonical = `${siteConfig.siteUrl}/${locale}/contact`;
   const whatsappUrl = createWhatsAppUrl(
     createWhatsAppMessage({
       locale,
@@ -33,6 +36,18 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <section className="section-y">
+      <JsonLd
+        data={createBreadcrumbJsonLd([
+          {
+            name: nav("home"),
+            url: `${siteConfig.siteUrl}/${locale}`
+          },
+          {
+            name: nav("contact"),
+            url: canonical
+          }
+        ])}
+      />
       <div className="container-shell grid gap-10 lg:grid-cols-[.95fr_1.05fr]">
         <div>
           <p className="text-sm font-bold text-[var(--primary)]">

@@ -9,6 +9,7 @@ import { Footer } from "@/components/footer";
 import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { Header } from "@/components/header";
 import { LeadModalProvider } from "@/components/lead-modal";
+import { JsonLd, createBusinessJsonLd } from "@/components/structured-data";
 import { routing, type Locale } from "@/i18n/routing";
 
 const cairo = Cairo({
@@ -44,8 +45,6 @@ export async function generateMetadata({
   const { locale } = await params;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://etkaan.com";
   const title = locale === "en" ? "Etkaan" : "إتقان";
-  const faviconUrl = "/favicon.ico?v=2";
-  const emblemUrl = "/brand/etkaan-emblem.png?v=2";
   const description =
     locale === "en"
       ? "Accounting, tax, company formation, and advisory services in Egypt."
@@ -58,10 +57,15 @@ export async function generateMetadata({
       template: `%s | ${title}`
     },
     description,
+    manifest: "/manifest.webmanifest",
     icons: {
-      icon: faviconUrl,
-      apple: emblemUrl,
-      shortcut: faviconUrl
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+      shortcut: "/favicon.ico"
     },
     openGraph: {
       type: "website",
@@ -93,6 +97,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${cairo.variable} ${inter.variable}`}
     >
       <body>
+        <JsonLd data={createBusinessJsonLd(typedLocale)} />
         <NextIntlClientProvider messages={messages}>
           <LeadModalProvider>
             <Header locale={typedLocale} />
