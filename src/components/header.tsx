@@ -67,7 +67,7 @@ export async function Header({ locale }: { locale: Locale }) {
           </Link>
         ))}
       </nav>
-      <div className="h-3 w-full bg-[rgba(10,32,56,0.12)]" aria-hidden="true" />
+      <div className="h-3 w-full bg-[rgba(14,111,104,0.14)]" aria-hidden="true" />
     </header>
   );
 }

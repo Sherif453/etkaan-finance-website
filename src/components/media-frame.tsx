@@ -29,7 +29,7 @@ export function MediaFrame({
       className={`overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--surface-muted)] ${className}`}
     >
       {hasError ? (
-        <div className="flex h-full min-h-full items-center justify-center bg-[linear-gradient(145deg,rgba(10,32,56,0.12),rgba(184,102,75,0.16))] p-5 text-center">
+        <div className="flex h-full min-h-full items-center justify-center bg-[linear-gradient(145deg,rgba(14,111,104,0.14),rgba(184,102,75,0.16))] p-5 text-center">
           <div>
             <p className="text-sm font-black text-[var(--primary-dark)]">
               {label}
