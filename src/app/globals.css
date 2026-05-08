@@ -7,13 +7,13 @@
   --text: #17211e;
   --muted: #5f6b66;
   --border: #ded6cb;
-  --primary: #0a2038;
-  --primary-dark: #071b2e;
+  --primary: #0e6f68;
+  --primary-dark: #0a514c;
   --accent: #b8664b;
   --error: #a13d3d;
-  --success: #0a2038;
-  --success-bg: rgba(10, 32, 56, 0.06);
-  --success-border: rgba(10, 32, 56, 0.18);
+  --success: #166b45;
+  --success-bg: rgba(22, 107, 69, 0.06);
+  --success-border: rgba(22, 107, 69, 0.18);
 }
 
 * {
@@ -54,12 +54,12 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid rgba(10, 32, 56, 0.34);
+  outline: 3px solid rgba(14, 111, 104, 0.34);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(10, 32, 56, 0.18);
+  background: rgba(14, 111, 104, 0.18);
 }
 
 .container-shell {
