@@ -10,7 +10,7 @@ This file is the implementation source of truth for the Etkaan website. Check th
 - Primary phone / WhatsApp: 01022566857
 - WhatsApp click-to-chat number: 201022566857
 - Address: 368 العصافره بحري، شارع ملك حفني، مكتب رقم 1، الدور الأول، الإسكندرية
-- Contact email placeholder: info@etkaan.com unless `NEXT_PUBLIC_CONTACT_EMAIL` is configured
+- Contact email: etkaan2012@outlook.com unless `NEXT_PUBLIC_CONTACT_EMAIL` is configured
 - Social links: Facebook, LinkedIn, and YouTube are provided through public environment variables
 - Service and sales contact CTAs must lead to WhatsApp or the shared lead form. External profile links and email links may open their own external services.
 

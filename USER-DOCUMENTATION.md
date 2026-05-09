@@ -71,10 +71,10 @@ Ask the developer or site admin to update these environment variables:
 - Google Maps link: `NEXT_PUBLIC_GOOGLE_MAPS_URL`
 - WhatsApp number: `NEXT_PUBLIC_WHATSAPP_NUMBER`
 
-The current email placeholder is:
+The current email is:
 
 ```text
-info@etkaan.com
+etkaan2012@outlook.com
 ```
 
 ## Updating Text

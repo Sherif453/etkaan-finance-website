@@ -7,7 +7,7 @@ export const siteConfig = {
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "201022566857",
   address:
     "368 العصافره بحري، شارع ملك حفني، مكتب رقم 1، الدور الأول، الإسكندرية",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@etkaan.com",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "etkaan2012@outlook.com",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://etkaan.com",
   mapsUrl:
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL ||
