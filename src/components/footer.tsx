@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { ReactElement } from "react";
 import { Link } from "@/i18n/navigation";
@@ -76,10 +77,20 @@ export async function Footer({ locale }: FooterProps): Promise<ReactElement> {
           </p>
         </div>
       </div>
-      <div className="container-shell mt-8 border-t border-[var(--border)] pt-5 text-sm text-[var(--muted)]">
+      <div className="container-shell mt-8 flex flex-col items-center gap-4 border-t border-[var(--border)] pt-5 text-center text-sm text-[var(--muted)] sm:flex-row sm:justify-between sm:text-start">
         <span>
           © {currentYear} {brandName}. {footer("rights")}
         </span>
+        <div className="flex items-center gap-2">
+          <span>{footer("websiteBy")}</span>
+          <Image
+            src="/brand/webloom-logo.png"
+            alt="Webloom"
+            width={112}
+            height={41}
+            className="h-auto w-24 sm:w-28"
+          />
+        </div>
       </div>
     </footer>
   );
